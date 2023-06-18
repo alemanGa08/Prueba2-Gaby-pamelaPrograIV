@@ -70,13 +70,7 @@ const Body = () => {
 
       const recetasGeneradas = response.data.choices.map(
         (choice: { text: string }) => {
-          // Aquí puedes procesar el texto generado para extraer la información de la receta.
-          // Por ejemplo, puedes utilizar expresiones regulares o alguna otra técnica para extraer los ingredientes y pasos.
-          return {
-            nombre: "Nombre de la receta", // Reemplazar con el nombre extraído
-            ingredientes: [], // Reemplazar con los ingredientes extraídos
-            pasos: [], // Reemplazar con los pasos extraídos
-          };
+
         }
       );
 
