@@ -82,36 +82,36 @@ const Body = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1 style={{ fontSize: '36px', marginBottom: '30px', color: 'gray' }}>Generador de Recetas</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span style={{ fontSize: '24px', color: 'gray' }}>Ingredientes:</span>
+      <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
+        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span style={{ fontSize: '24px', color: 'gray', marginBottom: '10px' }}>Ingredientes:</span>
           <input type="text" value={ingredientes} onChange={handleChangeIngredientes} style={{ fontSize: '20px' }} />
         </label>
         <br />
-        <label>
-          <span style={{ fontSize: '24px', color: 'gray' }}>Tipo:</span>
+        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span style={{ fontSize: '24px', color: 'gray', marginBottom: '10px' }}>Tipo:</span>
           <input type="text" value={tipo} onChange={handleChangeTipo} style={{ fontSize: '20px' }} />
         </label>
         <br />
-        <label>
-          <span style={{ fontSize: '24px', color: 'gray' }}>Dificultad:</span>
+        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span style={{ fontSize: '24px', color: 'gray', marginBottom: '10px' }}>Dificultad:</span>
           <input type="text" value={dificultad} onChange={handleChangeDificultad} style={{ fontSize: '20px' }} />
         </label>
         <br />
-        <label>
-          <span style={{ fontSize: '24px', color: 'gray' }}>Cantidad de Salidas:</span>
+        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span style={{ fontSize: '24px', color: 'gray', marginBottom: '10px' }}>Cantidad de Salidas:</span>
           <input type="number" value={cantidadSalidas} onChange={handleChangeCantidadSalidas} style={{ fontSize: '20px' }} />
         </label>
         <br />
-        <button type="submit" style={{ fontSize: '24px', backgroundColor: 'green', color: 'white' }}>
+        <button type="submit" style={{ fontSize: '24px', backgroundColor: '#089bc7', color: 'white', padding: '10px 20px' }}>
           Generar
         </button>
       </form>
-      <div style={{ marginTop: '50px' }}>
+      <div>
         {recetas.map((receta, index) => (
-          <div key={index}>
+          <div key={index} style={{ marginBottom: '50px' }}>
             <h3 style={{ fontSize: '28px', marginTop: '20px', color: 'gray' }}>{receta.nombre}</h3>
             <h4 style={{ fontSize: '24px', marginTop: '10px', color: 'gray' }}>Ingredientes:</h4>
             <ul style={{ fontSize: '20px', color: 'gray' }}>
