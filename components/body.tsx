@@ -14,7 +14,7 @@ const Body = () => {
   const [cantidadSalidas, setCantidadSalidas] = useState(5);
   const [recetas, setRecetas] = useState<Receta[]>([]);
 
-  const NEXT_PUBLIC_OPENAI_API_KEY = "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";
+  const NEXT_PUBLIC_OPENAI_API_KEY = "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";
 
   const handleChangeIngredientes = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIngredientes(event.target.value);
