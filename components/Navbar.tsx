@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Navbar, Nav, NavDropdown, Modal, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Nav, Modal, Card } from 'react-bootstrap';
 
 type Props = {
   handleSearch: () => Promise<void>;
@@ -8,66 +8,44 @@ type Props = {
 };
 
 const MyNavbar = ({ handleSearch, handlePersonal, activeTab }: Props) => {
-  // para Contacts
   const [showModal, setShowModal] = useState(false);
-  const [modalImage, setModalImage] = useState("");
-
-  // para Sobre nosotros
   const [showAboutModal, setShowAboutModal] = useState(false);
-
-  // para OpenAI
   const [showOpenAIModal, setShowOpenAIModal] = useState(false);
 
-  // para Contacts
   const handleCloseModal = () => setShowModal(false);
-
-  // para Sobre nosotros
   const handleCloseAboutModal = () => setShowAboutModal(false);
-
-  // para Open AI
   const handleCloseAboutOpenAI = () => setShowOpenAIModal(false);
 
-  // para contactanos
-  const handleShowModal = (image: string) => {
-    setModalImage(image);
-    setShowModal(true);
-  };
-
-  // para Sobre nosotros
+  const handleShowModal = () => setShowModal(true);
   const handleShowAboutModal = () => setShowAboutModal(true);
-
-  // para Open AI
   const handleShowOpenAIModal = () => setShowOpenAIModal(true);
 
   return (
     <>
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg="dark" expand="lg" variant="dark">
         <Navbar.Brand href="#home">
-          <img src="/chat.png" alt="foto logo" width={400} height={400} style={{ width: "400px", height: "300px" }}></img>
+          <img
+            src="/logo.png"
+            alt="Logo"
+            width={120}
+            height={40}
+            className="d-inline-block align-top"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto" activeKey={activeTab} style={{ backgroundColor: '#5e9af2', color: 'white', padding: '10px', letterSpacing: '10px', fontSize: '8px', borderRadius: '5px' }}>
-            <Nav.Link onClick={handleShowOpenAIModal} style={{ fontSize: '17px', color: 'white', marginRight: '20px', fontWeight: 'bold' }}>
-              OpenAI
-            </Nav.Link>
-            <Nav.Link onClick={handleShowAboutModal} style={{ fontSize: '17px', color: 'white', marginRight: '20px', fontWeight: 'bold' }}>
-              Sobre Nosotros
-            </Nav.Link>
-            <Nav.Link href="#" onClick={() => handleShowModal("/contactus.png")} style={{ fontSize: '17px', color: 'white', marginRight: '20px', fontWeight: 'bold' }}>
-              Contactanos
-            </Nav.Link>
+          <Nav className="mr-auto">
+            <Nav.Link onClick={handleShowOpenAIModal}>OpenAI</Nav.Link>
+            <Nav.Link onClick={handleShowAboutModal}>Sobre Nosotros</Nav.Link>
+            <Nav.Link onClick={handleShowModal}>Contáctanos</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      {/* Modal para Contactanos */}
-      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
-        <Modal.Header closeButton style={{ backgroundColor: '#5e9af2', color: 'white', padding: '10px', borderRadius: '5px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1>Contactenos</h1>
-          <button onClick={handleCloseModal} style={{ backgroundColor: 'red', color: 'white', fontSize: '1.2em', padding: '10px 20px', borderRadius: '5px', border: 'none' }}>
-            Salir
-          </button>
+      {/* Modal para Contáctanos */}
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Contactanos</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -81,53 +59,56 @@ const MyNavbar = ({ handleSearch, handlePersonal, activeTab }: Props) => {
             </ul>
           </div>
         </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-danger" onClick={handleCloseModal}>
+            Salir
+          </button>
+        </Modal.Footer>
       </Modal>
 
       {/* Modal para Sobre nosotros */}
-      <Modal show={showAboutModal} onHide={handleCloseAboutModal} size="lg" centered>
-        <div style={{ padding: '20px' }}>
-          <Modal.Header closeButton style={{ backgroundColor: '#5e9af2', color: 'white', padding: '10px', borderRadius: '5px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <h1 style={{ backgroundColor: '#5e9af2', color: 'white', padding: '5px', borderRadius: '5px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)', textAlign: 'center', fontSize: '1.5em', fontFamily: 'Arial, sans-serif' }}>
-              Sobre nosotros
-            </h1>
-            <button onClick={handleCloseAboutModal} style={{ backgroundColor: 'red', color: 'white', fontSize: '1.2em', padding: '10px 20px', borderRadius: '5px', border: 'none' }}>
-              Salir
-            </button>
-          </Modal.Header>
-          <Modal.Body>
-            <Card style={{ width: '100%', textAlign: 'center' }}>
-              <Card.Img src="/pregunta.png" alt="Preguntas" style={{ maxWidth: '300px', maxHeight: '50vh', objectFit: 'cover' }} />
-              <Card.Body>
-                <Card.Title style={{ fontSize: '1.5em' }}>
-                  Esta aplicación fue creada por nosotros y permite ingresar un tema para generar una lista de preguntas importantes y sus respuestas.
-                </Card.Title>
-              </Card.Body>
-            </Card>
-          </Modal.Body>
-        </div>
+      <Modal show={showAboutModal} onHide={handleCloseAboutModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Sobre nosotros</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Card>
+            <Card.Img src="/pregunta.png" alt="Preguntas" />
+            <Card.Body>
+              <Card.Title>
+                Esta aplicación fue creada por nosotros y permite ingresar un tema para generar una lista de preguntas importantes y sus respuestas.
+              </Card.Title>
+            </Card.Body>
+          </Card>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-danger" onClick={handleCloseAboutModal}>
+            Salir
+          </button>
+        </Modal.Footer>
       </Modal>
 
       {/* Modal para OpenAI*/}
-      <Modal show={showOpenAIModal} onHide={handleCloseAboutOpenAI} size="lg" centered>
-        <Modal.Header closeButton style={{ backgroundColor: '#5e9af2', color: 'white', padding: '10px', borderRadius: '5px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 style={{ backgroundColor: '#5e9af2', color: 'white', padding: '5px', borderRadius: '5px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)', textAlign: 'center', fontSize: '1.5em', fontFamily: 'Arial, sans-serif' }}>
-            OpenAi
-          </h1>
-          <button onClick={handleCloseAboutOpenAI} style={{ backgroundColor: 'red', color: 'white', fontSize: '1.2em', padding: '10px 20px', borderRadius: '5px', border: 'none' }}>
-            Salir
-          </button>
+      <Modal show={showOpenAIModal} onHide={handleCloseAboutOpenAI} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>OpenAI</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h1 style={{ fontSize: '1.5em', textAlign: 'center' }}>Aquí se brinda información sobre OpenAI</h1>
-          <Card style={{ width: '100%', textAlign: 'center' }}>
-              <Card.Img src="/chat2.png" alt="Chat" style={{ maxWidth: '300px', maxHeight: '50vh', objectFit: 'cover' }} />
-              <Card.Body>
-                <Card.Title style={{ fontSize: '1.5em' }}>
-                 OpenAI es una empresa de inteligencia artificial que desarrolla tecnologías como ChatGPT, un modelo de lenguaje avanzado con capacidad de conversación. ChatGPT es capaz de generar respuestas coherentes y contextuales, facilitando la interacción con los usuarios en diversos escenarios.
-                </Card.Title>
-              </Card.Body>
-            </Card>
+          <h1>Aquí se brinda información sobre OpenAI</h1>
+          <Card>
+            <Card.Img src="/chat2.png" alt="Chat" />
+            <Card.Body>
+              <Card.Title>
+                OpenAI es una empresa de inteligencia artificial que desarrolla tecnologías como ChatGPT, un modelo de lenguaje avanzado con capacidad de conversación. ChatGPT es capaz de generar respuestas coherentes y contextuales, facilitando la interacción con los usuarios en diversos escenarios.
+              </Card.Title>
+            </Card.Body>
+          </Card>
         </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-danger" onClick={handleCloseAboutOpenAI}>
+            Salir
+          </button>
+        </Modal.Footer>
       </Modal>
     </>
   );
