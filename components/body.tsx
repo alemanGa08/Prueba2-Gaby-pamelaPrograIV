@@ -89,44 +89,44 @@ const Body = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1 style={{ fontSize: '36px', marginBottom: '30px' }}>Generador de Recetas</h1>
+      <h1 style={{ fontSize: '36px', marginBottom: '30px', color: 'gray' }}>Generador de Recetas</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          <span style={{ fontSize: '24px' }}>Ingredientes:</span>
+          <span style={{ fontSize: '24px', color: 'gray' }}>Ingredientes:</span>
           <input type="text" value={ingredientes} onChange={handleChangeIngredientes} style={{ fontSize: '20px' }} />
         </label>
         <br />
         <label>
-          <span style={{ fontSize: '24px' }}>Tipo:</span>
+          <span style={{ fontSize: '24px', color: 'gray' }}>Tipo:</span>
           <input type="text" value={tipo} onChange={handleChangeTipo} style={{ fontSize: '20px' }} />
         </label>
         <br />
         <label>
-          <span style={{ fontSize: '24px' }}>Dificultad:</span>
+          <span style={{ fontSize: '24px', color: 'gray' }}>Dificultad:</span>
           <input type="text" value={dificultad} onChange={handleChangeDificultad} style={{ fontSize: '20px' }} />
         </label>
         <br />
         <label>
-          <span style={{ fontSize: '24px' }}>Cantidad de Salidas:</span>
+          <span style={{ fontSize: '24px', color: 'gray' }}>Cantidad de Salidas:</span>
           <input type="number" value={cantidadSalidas} onChange={handleChangeCantidadSalidas} style={{ fontSize: '20px' }} />
         </label>
         <br />
-        <button type="submit" style={{ fontSize: '24px', backgroundColor: 'red', color: 'white' }}>
+        <button type="submit" style={{ fontSize: '24px', backgroundColor: 'green', color: 'white' }}>
           Generar
         </button>
       </form>
       <div style={{ marginTop: '50px' }}>
         {recetas.map((receta, index) => (
           <div key={index}>
-            <h3 style={{ fontSize: '28px', marginTop: '20px' }}>{receta.nombre}</h3>
-            <h4 style={{ fontSize: '24px', marginTop: '10px' }}>Ingredientes:</h4>
-            <ul style={{ fontSize: '20px' }}>
+            <h3 style={{ fontSize: '28px', marginTop: '20px', color: 'gray' }}>{receta.nombre}</h3>
+            <h4 style={{ fontSize: '24px', marginTop: '10px', color: 'gray' }}>Ingredientes:</h4>
+            <ul style={{ fontSize: '20px', color: 'gray' }}>
               {receta.ingredientes.map((ingrediente, ingredienteIndex) => (
                 <li key={ingredienteIndex}>{ingrediente}</li>
               ))}
             </ul>
-            <h4 style={{ fontSize: '24px', marginTop: '10px' }}>Pasos:</h4>
-            <ol style={{ fontSize: '20px' }}>
+            <h4 style={{ fontSize: '24px', marginTop: '10px', color: 'gray' }}>Pasos:</h4>
+            <ol style={{ fontSize: '20px', color: 'gray' }}>
               {receta.pasos.map((paso, pasoIndex) => (
                 <li key={pasoIndex}>{paso}</li>
               ))}

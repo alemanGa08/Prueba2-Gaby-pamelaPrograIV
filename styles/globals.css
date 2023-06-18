@@ -24,4 +24,5 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  background-color: #C7F2FF; /* Cambiar a tu tono de celeste claro preferido */
 }
