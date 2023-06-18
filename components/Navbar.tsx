@@ -35,8 +35,8 @@ const MyNavbar = ({ handleSearch, handlePersonal, activeTab }: Props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link onClick={handleShowOpenAIModal}>OpenAI</Nav.Link>
             <Nav.Link onClick={handleShowAboutModal}>Sobre Nosotros</Nav.Link>
+            
             <Nav.Link onClick={handleShowModal}>Contáctanos</Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -50,12 +50,12 @@ const MyNavbar = ({ handleSearch, handlePersonal, activeTab }: Props) => {
         <Modal.Body>
           <div>
             <h1>Bienvenido a nuestra aplicación</h1>
-            <p>En esta aplicación consumiremos la API de OpenAI</p>
+            <p>En esta aplicación consumiremos la API de OpenAI para generar recetas</p>
             <img src="/contactenos.png" alt="Contactenos" style={{ maxWidth: '300px' }} />
             <p>Puede contactarnos a través de:</p>
             <ul>
-              <li>Teléfono: 61330764, 87230078</li>
-              <li>Correo electrónico: aaron.barboza.amador@est.una.ac.cr, allison.victor.vasquez@est.una.ac.cr</li>
+              <li>Teléfono: 85179240, 87460160</li>
+              
             </ul>
           </div>
         </Modal.Body>
@@ -76,7 +76,7 @@ const MyNavbar = ({ handleSearch, handlePersonal, activeTab }: Props) => {
             <Card.Img src="/pregunta.png" alt="Preguntas" />
             <Card.Body>
               <Card.Title>
-                Esta aplicación fue creada por nosotros y permite ingresar un tema para generar una lista de preguntas importantes y sus respuestas.
+                Esta pagina web fue diseñada para generar recetas a través del consumo de la API de Open AI
               </Card.Title>
             </Card.Body>
           </Card>
